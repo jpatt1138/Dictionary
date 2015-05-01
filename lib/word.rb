@@ -9,4 +9,8 @@ class Word
     @definition = attributes.fetch(:definition)
   end
 
+  define_singleton_method(:all) do
+    @@words
+  end
+
 end
