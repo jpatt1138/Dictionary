@@ -4,9 +4,9 @@ require('definition')
 require('pry')
 
 describe(Word) do
-  # before() do
-  #   Word.clear()
-  # end
+  before() do
+    Word.clear()
+  end
   describe('#word') do
     it('returns input word') do
       test_word = Word.new({:word => "goblin", :definition => Definition.new({ :part_of_speach => "noun", :definition_read_out => "a small mischievieous creature"}) })
@@ -33,7 +33,7 @@ describe(Word) do
     it('clears out container array of words') do
       test_word = Word.new({:word => "goblin", :definition => Definition.new({ :part_of_speach => "noun", :definition_read_out => "a small mischievieous creature"}) })
       test_word.save()
-      test_word.clear()
+      Word.clear()
       expect(Word.all()).to(eq([]))
     end
   end
