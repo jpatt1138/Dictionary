@@ -39,5 +39,4 @@ class Word
     found_word
   end
 
-
 end

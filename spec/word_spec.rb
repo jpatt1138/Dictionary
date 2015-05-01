@@ -54,4 +54,5 @@ describe(Word) do
       expect(test_word.definition()[0]).to(eq(test_definition))
     end
   end
+  
 end

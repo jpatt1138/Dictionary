@@ -1,8 +1,8 @@
 require('sinatra')
 require('sinatra/reloader')
-also_reload('lib/**/*.rb')
 require('./lib/word')
 require('./lib/definition')
+also_reload('lib/**/*.rb')
 
 get('/') do
   @all_words = Word.all()
@@ -21,7 +21,6 @@ post('/add_word')do
   new_definition = Definition.new({:part_of_speach => part_of_speach, :definition_read_out => definition})
   new_word = Word.new({:word => word})
   new_word.add_definition(new_definition)
-  # Word.new({:word => word, :definition => Definition.new({:part_of_speach => part_of_speach, :definition_read_out => definition})}).save()
   new_word.save()
   @all_words = Word.all()
   erb(:index)
