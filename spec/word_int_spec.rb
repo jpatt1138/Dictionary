@@ -26,12 +26,18 @@ end
 describe('the definition path', {:type => :feature}) do
   it('follows the word link and navigates to a page listing off the definition') do
     visit('/')
-    click_link('Enter a new word')
-    fill_in('word', :with => "notball")
-    fill_in('part_of_speach', :with => "n.")
-    fill_in('definition', :with => "a round thing to play with")
-    click_button('Add Word')
     click_link('ball')
-    expect(page).to have_content('ball n. a round thing to play with Would you like to add a definition? Part of speach: Definition: Add Word')
+    expect(page).to have_content('ball n. a round thing to play with')
+  end
+end
+
+describe('the add definition path', {:type => :feature}) do
+  it('fills in the form for additional definitions')do
+    visit('/')
+    click_link('ball')
+    fill_in('part_of_speach', :with => "v.")
+    fill_in('definition', :with => "to party hard like a straight up gangster")
+    click_button('Add Definition')
+    expect(page).to have_content('party hard')
   end
 end
