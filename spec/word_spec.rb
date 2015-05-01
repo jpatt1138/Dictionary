@@ -28,4 +28,13 @@ describe(Word) do
       expect(Word.all()).to(eq([test_word]))
     end
   end
+
+  describe('.clear') do
+    it('clears out container array of words') do
+      test_word = Word.new({:word => "goblin", :definition => Definition.new({ :part_of_speach => "noun", :definition_read_out => "a small mischievieous creature"}) })
+      test_word.save()
+      test_word.clear()
+      expect(Word.all()).to(eq([]))
+    end
+  end
 end
