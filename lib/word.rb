@@ -8,7 +8,7 @@ class Word
     @word = attributes.fetch(:word)
     @definition = attributes.fetch(:definition)
   end
-
+ 
   define_singleton_method(:all) do
     @@words
   end
