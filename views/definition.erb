@@ -1,7 +1,12 @@
-<form action="/add_word" method="post">
-  <label for="word">Word</label>
-  <input id="word" name="word" type="text">
+<h1><%= @word %></h1>
+<% @definition.each do |definition| %>
+<p><%= definition.part_of_speach() %></p>
+<p><%= definition.definition_read_out %></p>
+<% end %>
 
+<h5>Would you like to add a definition?</h5>
+
+<form action="/add_definition/<%= @word_object.w_id() %>" method="post">
   <label for="part_of_speach">Part of speach:</label>
   <input id="part_of_speach" name="part_of_speach" type="text">
 

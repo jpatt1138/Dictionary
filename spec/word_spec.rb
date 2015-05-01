@@ -37,11 +37,21 @@ describe(Word) do
       expect(Word.all()).to(eq([]))
     end
   end
+
   describe('.find') do
     it('finds a particular word based on its id number') do
       test_word = Word.new({:word => "goblin", :definition => Definition.new({ :part_of_speach => "noun", :definition_read_out => "a small mischievieous creature"}) })
       test_word.save()
       expect(Word.find(1)).to(eq(test_word))
+    end
+  end
+
+  describe('add_definition') do
+    it('takes a definition and adds it to a word') do
+      test_definition = Definition.new({:part_of_speach => "v.", :definition_read_out => "singer of songs"})
+      test_word = Word.new({:word => "something"})
+      test_word.add_definition(test_definition)
+      expect(test_word.definition()[0]).to(eq(test_definition))
     end
   end
 end
