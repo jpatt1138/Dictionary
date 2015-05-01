@@ -20,11 +20,12 @@ describe(Word) do
     end
   end
 
-  # describe('#save') do
-  #   it('takes a particular word and saves it in an array') do
-  #     test_word = Word.new({:word => "goblin", :definition => Definition.new({ :part_of_speach => "noun", :definition_read_out => "a small mischievieous creature"}) })
-  #     test_word.save()
-  #
-  #   end
-  # end
+
+  describe('#save') do
+    it('takes a particular word and saves it in an array') do
+      test_word = Word.new({:word => "goblin", :definition => Definition.new({ :part_of_speach => "noun", :definition_read_out => "a small mischievieous creature"}) })
+      test_word.save()
+      expect(Word.all()).to(eq([test_word]))
+    end
+  end
 end
