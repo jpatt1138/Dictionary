@@ -3,7 +3,7 @@ class Word
   @@words = []
   @@w_index = 0
 
-  attr_reader(:word, :definition)
+  attr_reader(:word, :definition, :id)
 
   define_method(:initialize) do |attributes|
     @word = attributes.fetch(:word)
